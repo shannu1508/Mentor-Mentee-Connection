@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.container {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #0a2143;
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.loginBtn {
+    background: white;
+    color: #0a2143;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+}
+
+.heroContent {
+    width: 50%;
+}
+
+.heroTitle {
+    font-size: 36px;
+    color: #0a2143;
+}
+
+.heroText {
+    margin: 15px 0;
+    color: gray;
+    font-size: 16px;
+}
+
+.getStarted {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #0a2143;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.members {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.memberImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.memberCount {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Hero Image */
+.heroImage {
+    width: 40%;
+    position: relative;
+}
+
+.mentorVideo {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mentorImage {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.videoIcons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconWrapper {
+    background: white;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.videoControls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.controlWrapper {
+    background: white;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+/* Why Choose Us Section */
+.whyChooseUs {
+    text-align: center;
+    padding: 50px;
+    background: #f5f5f5;
+}
+
+.sectionTitle {
+    color: #0a2143;
+    font-size: 28px;
+}
+
+.sectionText {
+    color: gray;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 50px;
+}
+
+.featureCard {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 300px;
+}
+
+.featureCard:hover {
+    transform: translateY(-10px);
+}
+
+.featureCard img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.featureCard h3 {
+    color: #0a2143;
+    margin-bottom: 10px;
+}
+
+.featureCard p {
+    color: gray;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 0;
+    background: #0a2143;
+    color: white;
+    margin-top: 50px;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statItem h3 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.statItem p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 50px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #0a2143;
+    margin-bottom: 50px;
+}
+
+.testimonialCards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.testimonialCard {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.testimonialCard img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.testimonialCard p {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonialCard h4 {
+    color: #0a2143;
+    margin-bottom: 5px;
+}
+
+.testimonialCard span {
+    color: gray;
+    font-size: 14px;
+}
+
+/* Logo styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+}
+
+/* CTA Section */
+.cta {
+    text-align: center;
+    padding: 80px 50px;
+    background: #0a2143;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.ctaButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ctaButtons .primaryBtn {
+    background: white;
+    color: #0a2143;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+.ctaButtons .secondaryBtn {
+    border: 2px solid white;
+    padding: 12px 24px;
+}
+
+/* Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 60px 50px 20px;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.footerLogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footerLogo img {
+    width: 30px;
+    height: 30px;
+}
+
+.footerLogo span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a2143;
+}
+
+.footerNav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.footerNav ul li a {
+    color: #666;
+    text-decoration: none;
+}
+
+.footerSocial {
+    display: flex;
+    gap: 20px;
+}
+
+.footerSocial a {
+    color: #0a2143;
+    font-size: 20px;
+}
+
+.footerBottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.footerBottom p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonialCards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .heroContent, .heroImage {
+        width: 100%;
+    }
+    
+    .footerContent {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footerNav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navList {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .statItem {
+        width: 45%;
+    }
+    
+    .ctaButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerSocial {
+        margin-top: 20px;
+    }
+}

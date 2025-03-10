@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.container {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #0a2143;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.loginBtn {
+    background: white;
+    color: #0a2143;
+}
+
+/* Search Section */
+.searchSection {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.searchSection h1 {
+    font-size: 36px;
+    color: #0a2143;
+    margin-bottom: 15px;
+}
+
+.searchSection p {
+    color: gray;
+    margin-bottom: 30px;
+}
+
+.searchContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.searchButton {
+    padding: 15px 30px;
+    background: #0a2143;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.searchButton:hover {
+    background: #0d2b5a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navList {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .searchContainer {
+        flex-direction: column;
+    }
+    
+    .searchButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.mentorsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: #0a2143;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card p {
+    color: #4a5568;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cardButtons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.actionButton {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.actionButton:first-child {
+    background-color: #0a2143;
+    color: white;
+}
+
+.actionButton:last-child {
+    background-color: #fff;
+    color: #0a2143;
+    border: 2px solid #0a2143;
+}
+
+.actionButton:first-child:hover {
+    background-color: #0d2b5a;
+}
+
+.actionButton:last-child:hover {
+    background-color: #f8f9fa;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.queryTextarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.modalButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancelButton {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submitButton:hover,
+.cancelButton:hover {
+    opacity: 0.9;
+}
+
+.starFilled {
+    color: gold;
+    text-shadow: 0 0 2px #000;
+}
+
+.starEmpty {
+    color: #ccc;
+}
+
+.ratingContainer {
+    margin: 10px 0;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.stars {
+    margin-bottom: 5px;
+    font-size: 20px;
+} 
