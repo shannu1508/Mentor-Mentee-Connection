@@ -27,7 +27,7 @@ const FindMentor = () => {
 
   const fetchMentors = async () => {
     try {
-      const baseUrl = 'http://localhost:5000'; // Make sure this matches your backend port
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001'; // Make sure this matches your backend port
       console.log('Fetching mentors from:', `${baseUrl}/api/mentors`);
       
       const response = await fetch(`${baseUrl}/api/mentors`, {
