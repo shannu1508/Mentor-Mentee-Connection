@@ -200,7 +200,8 @@ const FindMentor = () => {
         studentNumber: requestStudentNumber
       });
 
-      const response = await fetch('http://localhost:5000/api/requests', {
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001';
+      const response = await fetch(`${baseUrl}/api/requests`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
