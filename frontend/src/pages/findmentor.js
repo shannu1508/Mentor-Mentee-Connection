@@ -154,7 +154,8 @@ const FindMentor = () => {
 
   const fetchReviews = async (mentorId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/reviews/${mentorId}`);
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001';
+      const response = await fetch(`${baseUrl}/api/reviews/${mentorId}`);
       const data = await response.json();
       return data;
     } catch (err) {
