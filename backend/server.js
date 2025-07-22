@@ -414,6 +414,63 @@ const requestSchema = new mongoose.Schema({
 
 const Request = mongoose.model('Request', requestSchema, 'requests');
 
+// Add mentee requests endpoint
+app.get('/api/mentee/requests', verifyToken, async (req, res) => {
+  try {
+    const requests = await Request.find({ studentId: req.user.userId })
+      .populate('mentorId', 'fullName email branch')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json(requests);
+  } catch (error) {
+    console.error('Error fetching mentee requests:', error);
+    res.status(500).json({ message: 'Error fetching requests', error: error.message });
+  }
+});
+
+// Add mentor requests endpoint
+app.get('/api/mentor/requests', verifyToken, async (req, res) => {
+  try {
+    const requests = await Request.find({ mentorId: req.user.userId })
+      .populate('studentId', 'fullName email registrationNumber')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json(requests);
+  } catch (error) {
+    console.error('Error fetching mentor requests:', error);
+    res.status(500).json({ message: 'Error fetching requests', error: error.message });
+  }
+});
+
+// Handle request actions (accept/reject)
+app.put('/api/requests/:requestId/:action', verifyToken, async (req, res) => {
+  try {
+    const { requestId, action } = req.params;
+    
+    if (!['accept', 'reject'].includes(action)) {
+      return res.status(400).json({ message: 'Invalid action' });
+    }
+    
+    const request = await Request.findById(requestId);
+    if (!request) {
+      return res.status(404).json({ message: 'Request not found' });
+    }
+    
+    // Verify the mentor owns this request
+    if (request.mentorId.toString() !== req.user.userId) {
+      return res.status(403).json({ message: 'Unauthorized' });
+    }
+    
+    request.status = action === 'accept' ? 'accepted' : 'rejected';
+    await request.save();
+    
+    res.status(200).json({ message: `Request ${action}ed successfully`, request });
+  } catch (error) {
+    console.error('Error updating request:', error);
+    res.status(500).json({ message: 'Error updating request', error: error.message });
+  }
+});
+
 // Add request submission endpoint
 app.post('/api/requests', verifyToken, async (req, res) => {
   try {
