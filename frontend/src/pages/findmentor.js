@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import styles from '../styles/findmentor.module.css';
 
 const FindMentor = () => {
+  const { token } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [mentors, setMentors] = useState([]);
   const [loading, setLoading] = useState(true);
