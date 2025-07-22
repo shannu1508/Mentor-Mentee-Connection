@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
 import styles from '../styles/findmentor.module.css';
 
 const FindMentor = () => {
