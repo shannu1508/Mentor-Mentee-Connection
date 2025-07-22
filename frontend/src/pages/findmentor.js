@@ -77,7 +77,7 @@ const FindMentor = () => {
       console.log('Mentor Email:', selectedMentor.email);
       console.log('Query:', query);
 
-      const baseUrl = 'http://localhost:5000'; // Make sure this matches your backend port
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001'; // Make sure this matches your backend port
       console.log('Sending request to:', `${baseUrl}/api/send-query`);
 
       const response = await fetch(`${baseUrl}/api/send-query`, {
