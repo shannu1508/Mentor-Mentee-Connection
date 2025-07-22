@@ -21,7 +21,7 @@ const InfoBox = () => {
         setError('');
 
         // Update API endpoint to use port 5000
-        const apiUrl = 'http://localhost:5000/api/chat';
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001';
         console.log('Attempting to fetch from:', apiUrl);
 
         try {
