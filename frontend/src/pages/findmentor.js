@@ -69,7 +69,6 @@ const FindMentor = () => {
   const handleSubmitQuery = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
       if (!token) {
         alert('Please login first to send a query');
         return;
