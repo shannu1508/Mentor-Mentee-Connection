@@ -1,44 +1,31 @@
 import React from 'react';
-import styles from '../styles/home.module.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import Navbar from '../components/Navbar';
+import styles from '../styles/home.module.css';
 
 const Home = () => {
+  const { isAuthenticated, isMentor, isMentee } = useAuth();
+
+  const getStartedLink = () => {
+    if (isAuthenticated()) {
+      if (isMentor()) return "/mentor/dashboard";
+      if (isMentee()) return "/find-mentor";
+    }
+    return "/signup";
+  };
+
   return (
     <div className={styles.container}>
-      <header>
-        <div className={styles.navbar}>
-          <div className={styles.logo}>
-            <img src="https://cdn-icons-png.flaticon.com/512/9228/9228765.png" alt="Logo" />
-            Mentorlink
-          </div>
-          <nav>
-            <ul className={styles.navList}>
-              <li><Link to="/" className={styles.navLink}>Home</Link></li>
-              <li><Link to="/aichat" className={styles.navLink}>AI Assistant</Link></li>
-              <li><Link to="/find-mentor" className={styles.navLink}>Find Mentors</Link></li>
-              <li>
-  <a href="https://www.linkedin.com/in/mallikharjun-ampolu-325288326/" 
-     className={styles.navLink} 
-     target="_blank" 
-     rel="noopener noreferrer">
-    Contact Us
-  </a>
-</li>
-              <li><Link to="/about" className={styles.navLink}>About Us</Link></li>
-            </ul>
-          </nav>
-          <div className={styles.navButtons}>
-            <Link to="/signup" className={styles.btn}>Sign Up</Link>
-            <Link to="/login" className={`${styles.btn} ${styles.loginBtn}`}>Login</Link>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Boost Your Skills With <br /> Personalized 1 On 1 Mentorship</h1>
           <p className={styles.heroText}>Unlock your potential with personalized, one-on-one mentorship tailored to your goals. Connect with experts, get actionable insights, and accelerate your growth with Mentorlink.</p>
-          <Link to="/find-mentor" className={styles.getStarted}>Find Mentors →</Link>
+          <Link to={getStartedLink()} className={styles.getStarted}>
+            {isAuthenticated() ? (isMentor() ? "Go to Dashboard" : "Find Mentors") : "Get Started"} →
+          </Link>
         </div>
         
         <div className={styles.heroImage}>
@@ -124,13 +111,14 @@ const Home = () => {
         <h2>Ready to Start Your Journey?</h2>
         <p>Join thousands of successful students who have transformed their careers with Mentorlink</p>
         <div className={styles.ctaButtons}>
-          <a href="#" className={`${styles.btn} ${styles.primaryBtn}`}>Get Started Now</a>
-          <a href="#" className={`${styles.btn} ${styles.secondaryBtn}`}>Learn More</a>
+          <Link to={getStartedLink()} className={`${styles.btn} ${styles.primaryBtn}`}>
+            {isAuthenticated() ? "Go to Dashboard" : "Get Started Now"}
+          </Link>
+          <Link to="/about" className={`${styles.btn} ${styles.secondaryBtn}`}>Learn More</Link>
         </div>
       </section>
 
       <footer className={styles.footer}>
-        
         <div className={styles.footerBottom}>
           <p>&copy; 2024 Mentorlink. All rights reserved.</p>
         </div>

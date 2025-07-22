@@ -1,17 +1,17 @@
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/login.module.css';
-import { useState } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [selectedRole, setSelectedRole] = useState('mentor');
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   const handleInputChange = (e) => {
     setFormData({
@@ -29,7 +29,8 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/api/login`, {
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001';
+      const response = await fetch(`${baseUrl}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,12 +44,15 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store token and user data in localStorage
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        // Use the auth context login function
+        login(data.user, data.token);
         
-        // Redirect to dashboard or home page
-        navigate('/');
+        // Redirect based on user role
+        if (data.user.role === 'mentor') {
+          navigate('/mentor/dashboard');
+        } else {
+          navigate('/mentee/dashboard');
+        }
       } else {
         alert(data.message || 'Login failed');
       }
